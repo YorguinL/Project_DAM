@@ -33,18 +33,19 @@ public class DataBaseController : MonoBehaviour
         //StartGame();
 
         // 2
-        SelectMaxIdGame();
-        UpdateGameRecord(idGame, 5, 5, 5, 20, 3, 96);
+        //SelectMaxIdGame();
+        //UpdateGameRecord(idGame, 5, 5, 5, 20, 3, 96);
 
         // 3
-        InsertPlayer(idGame, "TheKing", 96);
+        //InsertPlayer(idGame, "TheKing", 96);
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        SelectAndUpdateRecord();
+
     }
 
     // Start game
@@ -67,7 +68,7 @@ public class DataBaseController : MonoBehaviour
     }
 
     // Select max game
-    private void SelectMaxIdGame(){
+    public void SelectMaxIdGame(){
 
         using(dbconn = new SqliteConnection(conn)){
 
@@ -79,7 +80,6 @@ public class DataBaseController : MonoBehaviour
 
             while(reader.Read()){
                 idGame = reader.GetInt32(0);
-                Debug.Log("Ultim joc = " + idGame);
             }
 
         reader.Close();
@@ -178,5 +178,23 @@ public class DataBaseController : MonoBehaviour
         }
     }
 
-    
+
+    public void SelectAndUpdateRecord(){
+        
+        if(GameController.Health <= 0){
+            SelectMaxIdGame();
+            UpdateGameRecord(idGame, 
+                             PlayerController.countHealth,
+                             PlayerController.countFireRate,
+                             PlayerController.countPlayerSpeed,
+                             GameController.countKilledEnemies,
+                             GameController.level,
+                             GameController.score);
+        }
+
+    }
+
+    public void NewPlayer(string nkName, int scr){
+        InsertPlayer(idGame, nkName, scr);
+    }
 }

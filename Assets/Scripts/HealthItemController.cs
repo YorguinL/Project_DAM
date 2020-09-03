@@ -21,8 +21,8 @@ public class HealthItemController : MonoBehaviour
 
         if(collision.tag == "Player"){
             PlayerController.countHealth++;
-            Destroy(gameObject);            
+            Destroy(gameObject);           
+            GameController.IncreaseHealth(PlayerController.countHealth); 
         }
-
     }
 }

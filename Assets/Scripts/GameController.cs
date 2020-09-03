@@ -12,9 +12,15 @@ public class GameController : MonoBehaviour
 
     private static int maxHealth = 6;
 
-    private static float moveSpeed = 2.5f;
+    private static float moveSpeed = 2f;
 
     private static float fireRate = 1f;
+
+    private static int countAuxHT = 0;
+
+    public static int countKilledEnemies = 0;
+    public static int level = 0;
+    public static int score = 0;
 
     public static int Health { get => health; set => health = value;}
 
@@ -49,6 +55,7 @@ public class GameController : MonoBehaviour
         vidorra.text = "Vida: " + health; // Prueba
         collectedItems.text = "Health: " + PlayerController.countHealth;
         collectedFireRate.text = "FireRate: " + PlayerController.countFireRate;
+
     }
 
     // Subtract damage from player
@@ -56,9 +63,73 @@ public class GameController : MonoBehaviour
 
         health -= damage;
 
+        if(health <= 0){
+            
+            calScore();
+        }
+
     }
 
-    public static void HealPlayer(int healAmount) {
-        health = Mathf.Min(maxHealth, health + healAmount);
+    public static void IncreaseHealth(int healthItems){
+        if(health < maxHealth){
+            if(healthItems > countAuxHT)
+                health += 1;
+        }
+        countAuxHT = healthItems;
     }
+
+    public static void IncreaseFireRate(int fireRateItems){
+
+        switch(fireRateItems){
+
+            case(3):
+                fireRate = 0.85f;
+            break;
+
+            case(6):
+                fireRate = 0.70f;
+            break;
+
+            case(18):
+                fireRate = 0.55f;
+            break;
+
+            case(32):
+                fireRate = 0.30f;
+            break;
+        }
+    }
+
+    public static void IncreasePlayerSpeed(int speedItems){
+
+        switch(speedItems){
+
+            case(3):
+                moveSpeed = 2.5f;
+            break;
+
+            case(6):
+                moveSpeed = 2.75f;
+            break;
+
+            case(18):
+                moveSpeed = 3f;
+            break;
+
+            case(32):
+                moveSpeed = 3.5f;
+            break;
+        }
+    }
+
+    public static void IncreaseLevel(){
+        level = 1;
+    }
+
+    public static void calScore(){
+
+        score = (PlayerController.countHealth * 2) + (PlayerController.countFireRate * 2) + (PlayerController.countPlayerSpeed * 2) + (countKilledEnemies + 5);
+        
+    }
+
 }

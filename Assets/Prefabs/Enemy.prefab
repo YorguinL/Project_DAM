@@ -190,7 +190,7 @@ MonoBehaviour:
   currState: 0
   enemyType: 0
   range: 5
-  speed: 0.5
+  speed: 1.5
   attackRange: 1
   bulletSpeed: 1
   coolDown: 2

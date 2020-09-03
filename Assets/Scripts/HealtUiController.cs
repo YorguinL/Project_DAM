@@ -22,6 +22,5 @@ public class HealtUiController : MonoBehaviour
         fillValue = (float)GameController.Health;
         fillValue = fillValue / GameController.MaxHealth;
         heartContainer.GetComponent<Image>().fillAmount = fillValue;
-        
     }
 }

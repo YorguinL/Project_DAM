@@ -60,14 +60,14 @@
     <Compile Include="Assets\Scripts\DataBaseController.cs" />
     <Compile Include="Assets\Scripts\BulletController.cs" />
     <Compile Include="Assets\Scripts\GameController.cs" />
-    <Compile Include="Assets\Script\db.cs" />
     <Compile Include="Assets\Scripts\DungeonGeneration\Door.cs" />
+    <Compile Include="Assets\Scripts\FireRateItemController.cs" />
+    <Compile Include="Assets\Scripts\HealthItemController.cs" />
     <Compile Include="Assets\Scripts\EnemyController.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
     <Compile Include="Assets\Scripts\DungeonGeneration\Room.cs" />
     <Compile Include="Assets\Scripts\HealtUiController.cs" />
-    <Compile Include="Assets\Scripts\FireRateItemController.cs" />
-    <Compile Include="Assets\Scripts\HealthItemController.cs" />
+    <Compile Include="Assets\Scripts\PlayerSpeedItemController.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\Mono.Data.Sqlite.dll" />

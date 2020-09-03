@@ -21,15 +21,8 @@ public class FireRateItemController : MonoBehaviour
 
         if(collision.tag == "Player"){
             PlayerController.countFireRate++;
-            Destroy(gameObject);          
+            Destroy(gameObject);    
+            GameController.IncreaseFireRate(PlayerController.countFireRate);      
         }
-        
-        /*
-        if(playerSpeedPrefab.tag == "PlayerSpeed"){
-            if(collision.tag == "Player"){
-                PlayerController.countPlayerSpeed++;
-                Destroy(gameObject);
-            }
-        }*/
     }
 }

@@ -178,6 +178,7 @@ public class EnemyController : MonoBehaviour
     }
 
     public void Death() {
+        GameController.countKilledEnemies++;
         Destroy(gameObject);
     }
 
