@@ -30,11 +30,9 @@ public class GameController : MonoBehaviour
 
     public static float FireRate { get => fireRate; set => fireRate = value;}
 
-    public Text vidorra;
-
-    public Text collectedItems;
-
-    public Text collectedFireRate;
+    public Text healtItems;
+    public Text fireRateItems;
+    public Text speedItems;
     
     // Start is called before the first frame update
     void Start()
@@ -52,9 +50,9 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        vidorra.text = "Vida: " + health; // Prueba
-        collectedItems.text = "Health: " + PlayerController.countHealth;
-        collectedFireRate.text = "FireRate: " + PlayerController.countFireRate;
+        healtItems.text = " x " + PlayerController.countHealth;
+        fireRateItems.text = " x " + PlayerController.countFireRate;
+        speedItems.text = " x " + PlayerController.countPlayerSpeed;
 
     }
 

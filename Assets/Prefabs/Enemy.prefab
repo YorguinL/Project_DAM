@@ -194,7 +194,7 @@ MonoBehaviour:
   attackRange: 1
   bulletSpeed: 1
   coolDown: 2
-  bulletPrefab: {fileID: 1832495924605104404, guid: 4967a7edc395cfd409e9eda04c9dad0a, type: 3}
+  bulletPrefab: {fileID: 1832495924605104404, guid: b6a5b080d7fb66043be81f9f8a3c44ed, type: 3}
   firePoint: {fileID: 8556963308700139513}
 --- !u!222 &6037254964599585735
 CanvasRenderer:

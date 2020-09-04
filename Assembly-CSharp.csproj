@@ -64,10 +64,12 @@
     <Compile Include="Assets\Scripts\FireRateItemController.cs" />
     <Compile Include="Assets\Scripts\HealthItemController.cs" />
     <Compile Include="Assets\Scripts\EnemyController.cs" />
+    <Compile Include="Assets\Scripts\PlayerSpeedItemController.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
     <Compile Include="Assets\Scripts\DungeonGeneration\Room.cs" />
     <Compile Include="Assets\Scripts\HealtUiController.cs" />
-    <Compile Include="Assets\Scripts\PlayerSpeedItemController.cs" />
+    <Compile Include="Assets\Scripts\CameraController.cs" />
+    <Compile Include="Assets\CameraController.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\Mono.Data.Sqlite.dll" />

@@ -21,9 +21,6 @@ public class PlayerController : MonoBehaviour
     public static int countHealth = 0;
     public static int countFireRate = 0;
     public static int countPlayerSpeed = 0;
-    public static int countKilledEnemies = 0;
-    public static int level = 0;
-    public static int score = 0;
 
     // Start is called before the first frame update
     void Start()

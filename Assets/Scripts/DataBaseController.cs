@@ -29,15 +29,7 @@ public class DataBaseController : MonoBehaviour
         dbconn = (IDbConnection)new SqliteConnection(conn);
         dbconn.Open(); 
 
-        // 1
-        //StartGame();
-
-        // 2
-        //SelectMaxIdGame();
-        //UpdateGameRecord(idGame, 5, 5, 5, 20, 3, 96);
-
-        // 3
-        //InsertPlayer(idGame, "TheKing", 96);
+        StartGame();
 
     }
 
