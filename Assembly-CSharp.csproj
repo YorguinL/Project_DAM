@@ -55,23 +55,18 @@
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio Tools for Unity\16.0\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\DungeonGeneration\RoomController.cs" />
-    <Compile Include="Assets\CameraController.cs" />
-    <Compile Include="Assets\Scripts\Player\Limits.cs" />
-    <Compile Include="Assets\Scripts\DungeonGeneration\DungeonGenerator.cs" />
-    <Compile Include="Assets\Scripts\GridController.cs" />
-    <Compile Include="Assets\Scripts\DataBaseController.cs" />
-    <Compile Include="Assets\Scripts\BulletController.cs" />
-    <Compile Include="Assets\Scripts\GameController.cs" />
-    <Compile Include="Assets\Scripts\DungeonGeneration\Door.cs" />
+    <Compile Include="Assets\Scripts\Player\CameraController.cs" />
+    <Compile Include="Assets\Scripts\Game\DataBaseController.cs" />
+    <Compile Include="Assets\Scripts\Bullet\BulletController.cs" />
+    <Compile Include="Assets\Scripts\Game\GameController.cs" />
     <Compile Include="Assets\Scripts\Collection\FireRateItemController.cs" />
     <Compile Include="Assets\Scripts\Collection\HealthItemController.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyController.cs" />
     <Compile Include="Assets\Scripts\Collection\PlayerSpeedItemController.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerController.cs" />
-    <Compile Include="Assets\Scripts\DungeonGeneration\Room.cs" />
     <Compile Include="Assets\Scripts\Collection\HealtUiController.cs" />
-    <Compile Include="Assets\Scripts\CameraController.cs" />
+    <Compile Include="Assets\Scripts\Game\LevelController.cs" />
+    <Compile Include="Assets\Scripts\Enemy\PortalController.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\Mono.Data.Sqlite.dll" />

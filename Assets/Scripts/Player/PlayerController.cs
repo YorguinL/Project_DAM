@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class PlayerController : MonoBehaviour
 {
 
-    public float speed = 0.1f;
+    public float speed = 2f;
     Rigidbody2D rigidbody;
     public GameObject bulletPrefab;
     public Transform firePoint;
