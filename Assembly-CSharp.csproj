@@ -56,8 +56,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Player\CameraController.cs" />
+    <Compile Include="Assets\Scripts\PositionsController.cs" />
     <Compile Include="Assets\Scripts\Game\LevelController.cs" />
     <Compile Include="Assets\Scripts\Game\DataBaseController.cs" />
+    <Compile Include="Assets\Scripts\Collection\CollectionController.cs" />
     <Compile Include="Assets\Scripts\Bullet\BulletController.cs" />
     <Compile Include="Assets\Scripts\Game\GameController.cs" />
     <Compile Include="Assets\Scripts\Collection\FireRateItemController.cs" />
@@ -66,10 +68,9 @@
     <Compile Include="Assets\Scripts\Enemy\PortalController.cs" />
     <Compile Include="Assets\Scripts\Collection\PlayerSpeedItemController.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerController.cs" />
-    <Compile Include="Assets\Scripts\Collection\HealtUiController.cs" />
     <Compile Include="Assets\Scripts\TimerController.cs" />
-    <Compile Include="Assets\Scripts\PositionsController.cs" />
-    <Compile Include="Assets\Scripts\Collection\CollectionController.cs" />
+    <Compile Include="Assets\Scripts\Collection\HealtUiController.cs" />
+    <Compile Include="Assets\Scripts\Game\MenuController.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\Mono.Data.Sqlite.dll" />

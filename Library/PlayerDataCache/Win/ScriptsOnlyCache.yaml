@@ -2,7 +2,6 @@ ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
     - BulletController
-    - CameraController
     - DataBaseController
     - EnemyController
     - FireRateItemController
@@ -39,7 +38,7 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.Image
     - UnityEngine.UI.Text
   sceneClasses:
-    Assets/Scenes/Dungeon/BasementStart.unity:
+    Assets/Scenes/Test.unity:
     - Class: 1
       Script: {instanceID: 0}
     - Class: 4
@@ -71,17 +70,17 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 12316}
     - Class: 114
-      Script: {instanceID: 12868}
+      Script: {instanceID: 12872}
     - Class: 114
       Script: {instanceID: 13144}
     - Class: 114
-      Script: {instanceID: 13226}
+      Script: {instanceID: 13228}
     - Class: 114
-      Script: {instanceID: 13274}
+      Script: {instanceID: 13276}
     - Class: 114
-      Script: {instanceID: 13284}
+      Script: {instanceID: 13286}
     - Class: 114
-      Script: {instanceID: 13374}
+      Script: {instanceID: 13376}
     - Class: 114
       Script: {instanceID: 13536}
     - Class: 114
@@ -93,13 +92,15 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 13858}
     - Class: 114
-      Script: {instanceID: 13938}
+      Script: {instanceID: 13940}
     - Class: 114
-      Script: {instanceID: 14660}
+      Script: {instanceID: 14662}
     - Class: 114
-      Script: {instanceID: 15666}
+      Script: {instanceID: 15668}
     - Class: 114
-      Script: {instanceID: 15712}
+      Script: {instanceID: 17818}
+    - Class: 114
+      Script: {instanceID: 17828}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -193,16 +194,16 @@ ScriptsOnlyBuild:
     className: TMP_FontAsset
   - hash:
       serializedVersion: 2
-      Hash: a28990ef4720e249345d9c6298678c49
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: RoomController
-  - hash:
-      serializedVersion: 2
       Hash: 65b3a3b9a7779d539ec75a3ceddebdba
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: CameraController
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: PositionsController
   - hash:
       serializedVersion: 2
       Hash: c3d3430df9e3ea95e3e3d587961390fb
@@ -215,6 +216,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TMP_StyleSheet
+  - hash:
+      serializedVersion: 2
+      Hash: 53c6d04d4bff7909fda25caa5084b099
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: LevelController
   - hash:
       serializedVersion: 2
       Hash: 699619b86d9359741a4f58540298c80b
@@ -247,6 +254,12 @@ ScriptsOnlyBuild:
     className: DataBaseController
   - hash:
       serializedVersion: 2
+      Hash: 76ac9d2be77be3bf2bcf3dbc4ca1c1a1
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: CollectionController
+  - hash:
+      serializedVersion: 2
       Hash: 4bc4346a71a8df53a6b106f68ef3a190
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
@@ -259,7 +272,7 @@ ScriptsOnlyBuild:
     className: BulletController
   - hash:
       serializedVersion: 2
-      Hash: cdf771d774ad12557d74489212c386d0
+      Hash: 9458c4d8fb59bd2e7c827fb372757594
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: GameController
@@ -299,12 +312,6 @@ ScriptsOnlyBuild:
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TextMeshProUGUI
-  - hash:
-      serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: Door
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -413,6 +420,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: EnemyController
+  - hash:
+      serializedVersion: 2
+      Hash: c1dda3ba0a94e8f14ce696c2ba664a17
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: PortalController
   - hash:
       serializedVersion: 2
       Hash: 4fd8bf02e3089425d3502e26c44ba31a
@@ -643,10 +656,10 @@ ScriptsOnlyBuild:
     className: TMP_ScrollbarEventHandler
   - hash:
       serializedVersion: 2
-      Hash: 709f07c9ead0236dca13da3fc8139d3c
+      Hash: ee22ba830da1a0e19d706a628f856ce2
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
-    className: Room
+    className: TimerController
   - hash:
       serializedVersion: 2
       Hash: 8220b46879dc5e37db1b940c938f5744
@@ -679,11 +692,11 @@ ScriptsOnlyBuild:
     className: HealtUiController
   - hash:
       serializedVersion: 2
-      Hash: 65b3a3b9a7779d539ec75a3ceddebdba
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
-    className: CameraController
+    className: Menu
   platform: 5
   scenePathNames:
-  - Assets/Scenes/Dungeon/BasementStart.unity
+  - Assets/Scenes/Test.unity
   playerPath: "C:/Users/yorgu/Documents/2n DAM/Projecte S\xEDntesi/Project DAM.exe"
