@@ -25,6 +25,7 @@ public class GameController : MonoBehaviour
     public static int countKilledEnemies = 0;
     public static int level = 0;
     public static int score = 0;
+    public static int savedGame = 0;
 
     public static int Health { get => health; set => health = value;}
 

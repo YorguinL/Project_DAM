@@ -16,10 +16,14 @@ public class DataBaseController : MonoBehaviour
     string dataBaseName = "Project_DAM.db";
     private string[] results;
 
+    private int idPlayer;
+
     private int idGame;
 
+    private int gameSaved;
+
     // Start is called before the first frame update
-    void Start()
+    public void Start()
     {
         //Path to database.
         string filepath = Application.dataPath + "/BBDD/" + dataBaseName; 
@@ -28,50 +32,55 @@ public class DataBaseController : MonoBehaviour
         conn = "URI=file:"  + filepath;
         dbconn = (IDbConnection)new SqliteConnection(conn);
         dbconn.Open(); 
-
-        StartGame();
+        print("Connectat a la base de dades");
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        SelectAndUpdateRecord();
+        
 
     }
 
-    // Start game
-    private void StartGame() {
-
-        using (dbconn = new SqliteConnection(conn)){
-
-            dbconn.Open(); 
-            dbcmd = dbconn.CreateCommand();
-            sqlQuery = "INSERT INTO Games (Health, FireRate, PlayerSpeed, KilledEnemies, Level, Score) " + 
-                       "VALUES(0, 0, 0, 0, 0, 0);";
-            dbcmd.CommandText = sqlQuery;
-            dbcmd.ExecuteScalar();
-            dbcmd.Dispose();
-            dbcmd = null;
-            dbconn.Close();
-            dbconn = null;
-        }
-
-    }
-
-    // Select max game
-    public void SelectMaxIdGame(){
+    // Select id player
+    public void SelectIdPlayer(string nickName){
 
         using(dbconn = new SqliteConnection(conn)){
 
             dbconn.Open();
             dbcmd = dbconn.CreateCommand();
-            string sqlQuery = "SELECT MAX(Id) FROM Games;";
+            string sqlQuery = "SELECT Id FROM Players WHERE NickName = \"" + nickName +"\";";
+            dbcmd.CommandText = sqlQuery;
+            reader = dbcmd.ExecuteReader();
+
+            while(reader.Read()){
+                idPlayer = reader.GetInt32(0);
+            }
+
+        reader.Close();
+        reader = null;
+        dbcmd.Dispose();
+        dbcmd = null;
+        dbconn.Close();
+        dbconn = null;
+        }
+    }
+
+    // Select id and saved game
+     public void SelectIdAndSavedGame(int idPl){
+
+        using(dbconn = new SqliteConnection(conn)){
+
+            dbconn.Open();
+            dbcmd = dbconn.CreateCommand();
+            string sqlQuery = "SELECT Id, Saved FROM Games WHERE Id = (SELECT MAX(Id) FROM Games WHERE IdPlayer = " + idPl + ";";
             dbcmd.CommandText = sqlQuery;
             reader = dbcmd.ExecuteReader();
 
             while(reader.Read()){
                 idGame = reader.GetInt32(0);
+                gameSaved = reader.GetInt32(1);
             }
 
         reader.Close();
@@ -84,8 +93,61 @@ public class DataBaseController : MonoBehaviour
         
     }
 
+    // Load game
+    private void SelectGame(int health, int healthItems, int fireRate, int playerSpeed, int killedEnemies, int level, int score, int saved){
+
+        using(dbconn = new SqliteConnection(conn)){
+
+            dbconn.Open();
+            dbcmd = dbconn.CreateCommand();
+            string sqlQuery = "SELECT * FROM Games WHERE Id = " + idGame + ";";
+            dbcmd.CommandText = sqlQuery;
+            reader = dbcmd.ExecuteReader();
+
+            while(reader.Read()){
+                idGame = reader.GetInt32(0);
+                idPlayer = reader.GetInt32(1);
+                health = reader.GetInt32(2);
+                healthItems = reader.GetInt32(3);
+                fireRate = reader.GetInt32(4);
+                playerSpeed = reader.GetInt32(5);
+                killedEnemies = reader.GetInt32(6);
+                level = reader.GetInt32(7);
+                score = reader.GetInt32(8);
+                gameSaved = reader.GetInt32(9);
+            }
+
+        reader.Close();
+        reader = null;
+        dbcmd.Dispose();
+        dbcmd = null;
+        dbconn.Close();
+        dbconn = null;
+        }
+
+    }
+
+    // Insert game
+    private void InsertGame(int idPl) {
+
+        using (dbconn = new SqliteConnection(conn)){
+
+            dbconn.Open(); 
+            dbcmd = dbconn.CreateCommand();
+            sqlQuery = "INSERT INTO Games (IdPlayer, Health, HealthItems, FireRate, PlayerSpeed, KilledEnemies, Level, Score, Saved) " + 
+                       "VALUES(\"" + idPl + "\", 6, 0, 0, 0, 0, 1, 0, 0);";
+            dbcmd.CommandText = sqlQuery;
+            dbcmd.ExecuteScalar();
+            dbcmd.Dispose();
+            dbcmd = null;
+            dbconn.Close();
+            dbconn = null;
+        }
+
+    }
+
     // Update game record
-    private void UpdateGameRecord(int id, int health, int fireRate, int playerSpeed, int killedEnemies, int level, int score){
+    private void UpdateGameRecord(int id, int health, int healthItems, int fireRate, int playerSpeed, int killedEnemies, int level, int score, int saved){
 
          using (dbconn = new SqliteConnection(conn)){
 
@@ -93,28 +155,34 @@ public class DataBaseController : MonoBehaviour
             dbcmd = dbconn.CreateCommand();
             sqlQuery = string.Format("UPDATE Games " + 
                                      "SET Health = @health, " + 
+                                     "HealthItems = @healthItems, " +
                                      "FireRate = @fireRate, " +
                                      "PlayerSpeed = @playerSpeed, " +
                                      "KilledEnemies = @killedEnemies, " +
                                      "Level = @level, " +
-                                     "Score = @score " +
+                                     "Score = @score, " +
+                                     "Score = @saved " +
                                      "WHERE Id = @id");
             
             SqliteParameter p_id =  new SqliteParameter("@id", id);
             SqliteParameter p_health =  new SqliteParameter("@health", health);
+            SqliteParameter p_healthItems =  new SqliteParameter("@healthItems", healthItems);
             SqliteParameter p_fireRate = new SqliteParameter("@fireRate", fireRate);
             SqliteParameter p_playerSpeed = new SqliteParameter("@playerSpeed", playerSpeed);
             SqliteParameter p_killedEnemies = new SqliteParameter("@killedEnemies", killedEnemies);
             SqliteParameter p_level =  new SqliteParameter("@level", level);
             SqliteParameter p_score =  new SqliteParameter("@score", score);
+            SqliteParameter p_saved =  new SqliteParameter("@saved", saved);
 
             dbcmd.Parameters.Add(p_id);
             dbcmd.Parameters.Add(p_health);
+            dbcmd.Parameters.Add(p_healthItems);
             dbcmd.Parameters.Add(p_fireRate);
             dbcmd.Parameters.Add(p_playerSpeed);
             dbcmd.Parameters.Add(p_killedEnemies);
             dbcmd.Parameters.Add(p_level);
             dbcmd.Parameters.Add(p_score);
+            dbcmd.Parameters.Add(p_saved);
 
             dbcmd.CommandText = sqlQuery;
             dbcmd.ExecuteScalar();
@@ -126,14 +194,14 @@ public class DataBaseController : MonoBehaviour
     }
 
     // Insert player
-    private void InsertPlayer(int id, string nickName, int score){
+    private void InsertPlayer(string nickName){
 
         using (dbconn = new SqliteConnection(conn)){
 
             dbconn.Open(); 
             dbcmd = dbconn.CreateCommand();
-            sqlQuery = "INSERT INTO Players(IdGame, NickName, Score) "+ 
-                       "VALUES (" + id + ", \"" + nickName + "\", " + score + ");";
+            sqlQuery = "INSERT INTO Players(NickName, Score) "+ 
+                       "VALUES (\"" + nickName + "\", 0);";
             dbcmd.CommandText = sqlQuery;
             dbcmd.ExecuteScalar();
             dbcmd.Dispose();
@@ -170,23 +238,86 @@ public class DataBaseController : MonoBehaviour
         }
     }
 
+    // 
+    public void NewPlayer(string nkName){
+        InsertPlayer(nkName);
+    }
 
-    public void SelectAndUpdateRecord(){
+    // 
+    public void NewGame(){
+        InsertGame(idPlayer);
+    }
+
+    // Check if the player exists
+    public void CheckPlayer(string nickName){
+
+        SelectIdPlayer(nickName);
+        print("IdPlayer: " + idPlayer);
+
+        if(idPlayer != 0){
+            // El usuari ja existeix, crea nova partida
+            NewGame();
+
+        } else {
+            // El usuari no existeix, el crea i crea nova partida
+            NewPlayer(nickName);
+            SelectIdPlayer(nickName);
+            NewGame();
+        }    
+    }
+
+    public void CheckSavedGame(string nickName){
+        
+        SelectIdPlayer(nickName);
+
+        if(idPlayer != 0){
+            // El usuari ja existeix
+            SelectIdAndSavedGame(idPlayer);
+
+            if(gameSaved == 1){
+                // Cargar partida
+                LoadSavedGame();
+
+            }else {
+                // Partida no guardada
+                // Missatge d'error
+            }
+        }
+    }
+
+    // Load saved game
+    public void LoadSavedGame(){
+
+        SelectGame(GameController.Health,
+                   PlayerController.countHealth,
+                   PlayerController.countFireRate,
+                   PlayerController.countPlayerSpeed,
+                   GameController.countKilledEnemies,
+                   GameController.level,
+                   GameController.score,
+                   GameController.savedGame
+                   );
+    }
+
+    // Update game
+    public void UpdateRecord(){
         
         if(GameController.Health <= 0){
-            SelectMaxIdGame();
             UpdateGameRecord(idGame, 
+                             GameController.Health,
                              PlayerController.countHealth,
                              PlayerController.countFireRate,
                              PlayerController.countPlayerSpeed,
                              GameController.countKilledEnemies,
                              GameController.level,
-                             GameController.score);
+                             GameController.score,
+                             GameController.savedGame);
         }
 
     }
 
-    public void NewPlayer(string nkName, int scr){
-        InsertPlayer(idGame, nkName, scr);
+    public void ShowTop5(){
+        SelectTop5();
     }
+
 }

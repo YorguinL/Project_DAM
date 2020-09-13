@@ -2,7 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-public class Menu : MonoBehaviour
+using UnityEngine.UI;
+
+
+public class MenuController : MonoBehaviour
 {
 
     public void ReturnMain()
@@ -33,6 +36,5 @@ public class Menu : MonoBehaviour
     {
         Application.Quit();
     }
-  
 
 }
