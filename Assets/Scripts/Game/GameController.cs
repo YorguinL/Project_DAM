@@ -42,10 +42,10 @@ public class GameController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GameObject player = (GameObject)Instantiate(playerPrefab);
-        player.transform.position = new Vector3(0, 0, 0);
+        //GameObject player = (GameObject)Instantiate(playerPrefab);
+        //player.transform.position = new Vector3(0, 0, 0);
 
-        GameObject portal = (GameObject)Instantiate(portalPrefab);
+        //GameObject portal = (GameObject)Instantiate(portalPrefab);
     }
 
     private void Awake() {
@@ -61,6 +61,7 @@ public class GameController : MonoBehaviour
         healtItems.text = " x " + PlayerController.countHealth;
         fireRateItems.text = " x " + PlayerController.countFireRate;
         speedItems.text = " x " + PlayerController.countPlayerSpeed;
+        kills.text = " x " + countKilledEnemies;
 
     }
 

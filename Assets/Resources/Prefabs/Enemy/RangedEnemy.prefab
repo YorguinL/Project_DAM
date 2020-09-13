@@ -116,7 +116,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 3
   m_Sprite: {fileID: -8653387376354347096, guid: e75630121bed9f84b853a7f8e58a3ec1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -138,7 +138,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.00030481815, y: 0.011015028}
@@ -194,7 +194,7 @@ MonoBehaviour:
   attackRange: 1
   bulletSpeed: 1
   coolDown: 2
-  bulletPrefab: {fileID: 1832495924605104404, guid: 4967a7edc395cfd409e9eda04c9dad0a, type: 3}
+  bulletPrefab: {fileID: 1832495924605104404, guid: b6a5b080d7fb66043be81f9f8a3c44ed, type: 3}
   firePoint: {fileID: 5916526130806160007}
 --- !u!222 &3109422777220870223
 CanvasRenderer:

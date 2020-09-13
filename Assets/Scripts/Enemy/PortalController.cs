@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class PortalController : MonoBehaviour
 {
-    public float time = 10f;
+    public static float time;
     float nextPosition = 0.0f;
-    public Transform portal;
+    public GameObject portal;
 
     // Start is called before the first frame update
     void Start()
     {
-        NewPosition();
+        PositionsController.NewPosition(portal);
     }
 
     // Update is called once per frame
@@ -19,11 +19,11 @@ public class PortalController : MonoBehaviour
     {
         if(Time.time > nextPosition){
             nextPosition = Time.time + time;
-            NewPosition();
+            PositionsController.NewPosition(portal);
         }
     }
 
-
+    /*
     void NewPosition(){
 
         int rnd = Random.Range(0,2);
@@ -53,4 +53,5 @@ public class PortalController : MonoBehaviour
 
         transform.position = new Vector3(posX, posY, 0);
     }
+    */
 }
