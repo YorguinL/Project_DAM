@@ -170,6 +170,8 @@ public class PlayerController : MonoBehaviour
             ddbb.Start();
             ddbb.UpdateRecord(InputsController.NickName);
 
+            //
+
             Destroy(gameObject);
 
             // Canvi d'escena

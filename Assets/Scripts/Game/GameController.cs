@@ -125,39 +125,43 @@ public class GameController : MonoBehaviour
 
         switch(countKilledEnemies){
 
-            case(15):
-                level = 2;
-                print("LEVEL 2");
-                StartTimer();
+            case(3):
+                if(level != 2){
+                    level = 2;
+                    //MessageController.Start("LEVEL 2");
+                    print("LEVEL 2");
+                    StartTimer();
+                }
             break;
 
-            case(35):
-                level = 3;
-                print("LEVEL 3");
-                StartTimer();
+            case(10):
+                if(level != 3){
+                    level = 3;
+                    StartTimer();
+                }
             break;
 
             case(50):
                 level = 4;
-                print("LEVEL 4");
+                MessageController.Start("LEVEL 4");
                 StartTimer();
             break;
 
             case(70):
                 level = 5;
-                print("LEVEL 5");
+                MessageController.Start("LEVEL 5");
                 StartTimer();
             break;
 
             case(90):
                 level = 6;
-                print("LEVEL 6");
+                MessageController.Start("LEVEL 6");
                 StartTimer();
             break;
 
             case(110):
                 // Juego completado
-                
+                MessageController.Start("GAME COMPLETED");
             break;
         }
     }
@@ -177,9 +181,8 @@ public class GameController : MonoBehaviour
         } else {
             if(m == 0 && s == 0){
                 // End game
-                print("GAME OVER!");
+                //MessageController.Start("GAME OVER");
                 
-
             } else {
                 m--;
                 s = 59;
