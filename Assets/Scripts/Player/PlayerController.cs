@@ -165,6 +165,11 @@ public class PlayerController : MonoBehaviour
 
     void Die(){
         if(GameController.Health <= 0) {
+
+            DataBaseController ddbb = new DataBaseController();
+            ddbb.Start();
+            ddbb.UpdateRecord(InputsController.NickName);
+
             Destroy(gameObject);
 
             // Canvi d'escena

@@ -16,10 +16,10 @@ EditorBuildSettings:
     guid: 28a8c33f0ca11ac48b446c218f934a26
   - enabled: 1
     path: Assets/Scenes/New.unity
-    guid: 73716293c7de1f848b5a7031d372c8aa
+    guid: 48112a70853dbdf4b9561ec2215e8ad4
   - enabled: 1
     path: Assets/Scenes/Continue.unity
-    guid: d08819fcbf89e5748a66abdce392841d
+    guid: 1650be20b25930f4689d3f47d3ca01bc
   - enabled: 1
     path: Assets/Scenes/Map.unity
     guid: 778f7820f9cc76b4f81d805570d73c32

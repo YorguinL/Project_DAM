@@ -39,7 +39,7 @@ public class DataBaseController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+ 
 
     }
 
@@ -74,7 +74,7 @@ public class DataBaseController : MonoBehaviour
 
             dbconn.Open();
             dbcmd = dbconn.CreateCommand();
-            string sqlQuery = "SELECT Id, Saved FROM Games WHERE Id = (SELECT MAX(Id) FROM Games WHERE IdPlayer = " + idPl + ";";
+            string sqlQuery = "SELECT Id, Saved FROM Games WHERE Id = (SELECT MAX(Id) FROM Games WHERE IdPlayer = " + idPl + ");";
             dbcmd.CommandText = sqlQuery;
             reader = dbcmd.ExecuteReader();
 
@@ -252,7 +252,6 @@ public class DataBaseController : MonoBehaviour
     public void CheckPlayer(string nickName){
 
         SelectIdPlayer(nickName);
-        print("IdPlayer: " + idPlayer);
 
         if(idPlayer != 0){
             // El usuari ja existeix, crea nova partida
@@ -263,7 +262,9 @@ public class DataBaseController : MonoBehaviour
             NewPlayer(nickName);
             SelectIdPlayer(nickName);
             NewGame();
-        }    
+            SelectIdAndSavedGame(idPlayer);
+        }  
+        print("IdGame: " + idGame);  
     }
 
     public void CheckSavedGame(string nickName){
@@ -300,8 +301,12 @@ public class DataBaseController : MonoBehaviour
     }
 
     // Update game
-    public void UpdateRecord(){
-        
+    public void UpdateRecord(string nickName){
+
+        SelectIdPlayer(nickName);
+        SelectIdAndSavedGame(idPlayer);
+        print("OTRA VEZ: " + idGame);
+
         if(GameController.Health <= 0){
             UpdateGameRecord(idGame, 
                              GameController.Health,

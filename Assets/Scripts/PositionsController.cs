@@ -32,17 +32,11 @@ public class PositionsController : MonoBehaviour
         int posX = Random.Range(-4,-17);
         int posY = Random.Range(-8,8);
 
-        print(posX);
-        print(posY);
-
         gameObject.transform.position = new Vector3(posX, posY, 0);
     }
     public static void NewPositionRight(GameObject gameObject){
         int posX = Random.Range(4,17);
         int posY = Random.Range(-8,8);
-
-        print(posX);
-        print(posY);
 
         gameObject.transform.position = new Vector3(posX, posY, 0);
     }
